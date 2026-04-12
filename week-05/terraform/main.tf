@@ -20,6 +20,7 @@ resource "aws_security_group" "bv344_sg" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow HTTP traffic from Internet"
   }
 
   egress {
@@ -27,6 +28,7 @@ resource "aws_security_group" "bv344_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow all outbound traffic"
   }
 }
 
@@ -58,6 +60,14 @@ resource "aws_instance" "bv344_server" {
   instance_type          = "t3.micro"
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
   vpc_security_group_ids = [aws_security_group.bv344_sg.id]
+  
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
 
   tags = {
     Name = "bv344-terraform-server"
