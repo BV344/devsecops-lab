@@ -1,5 +1,5 @@
 # Base image - we're building on top of official Nginx
-FROM nginx:latest
+FROM nginx:alpine
 
 # Who made this image
 LABEL maintainer="bv344"

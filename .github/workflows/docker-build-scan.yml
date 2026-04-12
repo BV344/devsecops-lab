@@ -1,0 +1,37 @@
+name: Build, Scan and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'week-03/docker-projects/my-webserver/**'
+
+jobs:
+  build-scan-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t bv344/my-webserver:latest \
+            week-03/docker-projects/my-webserver/
+
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: bv344/my-webserver:latest
+          severity: CRITICAL,HIGH
+          exit-code: '0'
+
+      - name: Push to Docker Hub
+        run: docker push bv344/my-webserver:latest
