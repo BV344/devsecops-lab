@@ -1,0 +1,5 @@
+[allowlist]
+description = "Allowlist for known false positives"
+paths = [
+  "week-10/notes/week10-notes.md"
+]

@@ -46,7 +46,7 @@ secrets in Vault. Secrets are stored as key-value pairs at a path:
 
 ```bash
 # Store a secret
-vault kv put secret/myapp db_password="secret123" api_key="abc123"
+vault kv put secret/myapp db_password="YOUR_PASSWORD_HERE" api_key="abc123"
 
 # Retrieve a secret
 vault kv get secret/myapp
