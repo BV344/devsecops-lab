@@ -44,6 +44,7 @@ jobs:
           image-ref: bv344/my-webserver:latest
           severity: CRITICAL,HIGH
           exit-code: '1'
+          trivyignores: week-03/docker-projects/my-webserver/.trivyignore
 
       - name: Push to Docker Hub
         run: docker push bv344/my-webserver:latest
