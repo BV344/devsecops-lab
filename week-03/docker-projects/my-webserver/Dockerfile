@@ -1,3 +1,4 @@
+# Updated for Week 19 pipeline security
 FROM nginx:alpine
 
 LABEL maintainer="bv344"
