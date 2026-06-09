@@ -30,14 +30,15 @@
 | 20 | CSPM — Prowler AWS audit, EBS encryption, IMDSv2, IAM password policy | ✅ |
 | 21 | Threat Modeling — STRIDE framework, attack surface analysis, risk assessment | ✅ |
 | 22 | Zero Trust Architecture — Verify explicitly, least privilege, assume breach | ✅ |
-| 23 | DevSecOps Capstone Project | ⏳ |
-| 24 | Portfolio & Career Prep | 🔜 |
+| 23 | DevSecOps Capstone — secure-cloud-deployment-pipeline, Tailscale VPN deployment | ✅ |
+| 24 | Portfolio & Career Prep — resume, LinkedIn, GitHub cleanup, interview prep | ✅ |
 
 ---
 
 ## 🏆 Key Achievements
 
-- **Automated CI/CD security pipeline** — gitleaks blocks secret commits, Trivy blocks vulnerable images, nothing ships without passing both gates
+- **Capstone project** — fully automated DevSecOps pipeline deploying a hardened Flask container to a self-hosted Ubuntu Server via Tailscale WireGuard VPN with Gitleaks and Trivy hard gates — [secure-cloud-deployment-pipeline](https://github.com/BV344/secure-cloud-deployment-pipeline)
+- **Automated CI/CD security pipeline** — Gitleaks blocks secret commits, Trivy blocks vulnerable images, nothing ships without passing both gates
 - **Hardened monitoring stack** — Prometheus, Grafana, and Loki all bound to localhost behind Nginx HTTPS with UFW firewall rules
 - **Linux server hardening** — Lynis score improved from 59 → 71/100 with SSH hardening, fail2ban, rkhunter, and auditd
 - **AWS CSPM audit** — Prowler found and fixed 10+ findings including EBS encryption, IMDSv2 enforcement, IAM password policy, and MFA gaps
@@ -54,6 +55,8 @@
 - [x] Learn Docker, Kubernetes, CI/CD, AWS, and Terraform
 - [x] Integrate security scanning at every layer of the pipeline
 - [x] Apply Zero Trust principles across infrastructure
+- [x] Build a production-quality capstone project
+- [x] Polish resume, LinkedIn, and GitHub for job search
 - [ ] Land a DevSecOps role
 
 ---
@@ -111,6 +114,7 @@
 | HashiCorp Vault | v2.0.0 | Secrets management |
 | Nginx | Latest | HTTPS reverse proxy |
 | UFW | Latest | Linux firewall |
+| Tailscale | Latest | WireGuard VPN for private server access |
 
 ---
 
@@ -144,7 +148,19 @@ devsecops-lab/
 │   └── threat-model.md             # STRIDE threat model
 ├── week-22/
 │   └── zero-trust-analysis.md      # Zero Trust mapping
+├── week-23/
+│   └── notes/
+│       └── week23-notes.md         # Capstone project notes
+├── week-24/
+│   └── notes/
+│       └── week24-notes.md         # Portfolio and career prep notes
 └── week-XX/
     └── notes/
         └── weekXX-notes.md         # Weekly learning notes
 ```
+
+---
+
+## 🚀 Capstone Project
+
+**[secure-cloud-deployment-pipeline](https://github.com/BV344/secure-cloud-deployment-pipeline)** — A fully automated DevSecOps pipeline that containerizes a Flask web application and deploys it to a self-hosted Ubuntu Server with zero public internet exposure. Features Gitleaks secret scanning, Trivy vulnerability scanning, and Tailscale WireGuard VPN for private network deployment via GitHub Actions.
